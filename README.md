@@ -38,7 +38,7 @@ Target the items inside elements that contain `$count` items or more:
 
 Target the items inside elements that contain N items or less:
 
-	@include nope($count) { ... }
+	@include at-most($count) { ... }
 
 
 ### between()

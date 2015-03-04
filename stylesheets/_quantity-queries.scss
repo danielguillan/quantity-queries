@@ -118,10 +118,10 @@
         @error '`#{$selector}` is not a valid selector for `at-most`';
     }
 
-    $at-least-selector: _build-quantity-selector($selector-append, $selector);
+    $at-most-selector: _build-quantity-selector($selector-append, $selector);
 
 
-    @at-root #{$at-least-selector} {
+    @at-root #{$at-most-selector} {
         @content;
     }
 }
@@ -163,10 +163,10 @@
         @error '`#{$selector}` is not a valid selector for `between`';
     }
 
-    $at-least-selector: _build-quantity-selector($selector-append, $selector);
+    $between-selector: _build-quantity-selector($selector-append, $selector);
 
 
-    @at-root #{$at-least-selector} {
+    @at-root #{$between-selector} {
         @content;
     }
 }
