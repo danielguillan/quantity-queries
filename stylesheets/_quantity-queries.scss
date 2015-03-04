@@ -18,8 +18,7 @@
 /// @param  {list | string} $selector - A single selector
 /// @return {string}                  - The last simple selector in $selector
 /// @example scss
-///   $result: _last-simple-selector(ul > li); // returns 'li'
-/// @todo: check that $selector is a valid list with a single selector
+///   $result: _last-simple-selector(ul > li); // li
 
 @function _last-simple-selector($selector) {
     $parsed: selector-parse($selector);
@@ -39,9 +38,9 @@
 
 /// Builds the selector for the quantity query
 /// @access private
-/// @param  {string} $selector-append      - The selector to append
-/// @param  {string} $last-selector        - The last selector to use (item)
-/// @return {list}                         - The complete quantity query selector
+/// @param  {string} $selector-append      - The selector to be appended
+/// @param  {string} $last-selector        - The item's selector
+/// @return {list}                         - The final quantity query selector
 
 @function _build-quantity-selector($selector-append, $last-selector) {
     $quantity-selector: ();
@@ -76,7 +75,7 @@
 @mixin at-least($count, $selector: null) {
     $selector-append: ':nth-last-child(n+#{$count})';
 
-    @if type-of($count) != 'number' {
+    @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
         @error '`#{$count}` is not a valid number for `at-leat`';
     }
 
@@ -111,7 +110,7 @@
 @mixin at-most($count, $selector: null) {
     $selector-append: ':nth-last-child(-n+#{$count}):first-child';
 
-    @if type-of($count) != 'number' {
+    @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
         @error '`#{$count}` is not a valid number for `at-most`.';
     }
 
@@ -147,6 +146,14 @@
 
 @mixin between($first, $last, $selector: null) {
     $selector-append: ':nth-last-child(n+#{$first}):nth-last-child(-n+#{$last}):first-child';
+
+    @if type-of($first) != 'number' or not unitless($first) or $first < 1 {
+        @error '`#{$first}` is not a valid number for `at-leat`';
+    }
+
+    @if type-of($last) != 'number' or not unitless($last) or $last < 1 {
+        @error '`#{$last}` is not a valid number for `at-leat`';
+    }
 
     @if $first > $last {
         @error '#{$first} can´t be larger that #{$last} for `between`';

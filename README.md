@@ -84,3 +84,6 @@ you just need to pass it in the mixin:
 		@include at-leat(4, '*') { ... }; // selector agnostic
 		@include between(4, 8, 'span') { ... }; // use span instead of div
 	}
+```
+
+### Demo on [CodePen](http://codepen.io/danielguillan/pen/GgBOxm)
