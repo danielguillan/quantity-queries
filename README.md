@@ -1,6 +1,6 @@
 # Quantity Queries mixins
 
-Simple quantity queries mixins for Sass. Use quantity as a condition. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css).
+Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css). See the mixins in action in this [CodePen Demo](http://codepen.io/danielguillan/pen/GgBOxm)
 
 ## Install
 
@@ -27,25 +27,25 @@ Import it into your main stylesheet:
 
 	@import 'quantity-queries';
 
-### at-least
+### at-least()
 
-Target the items inside elements that contain N items or more:
+Target the items inside elements that contain `$count` items or more:
 
 	@include at-least($count) { ... }
 
 
-### at-most
+### at-most()
 
 Target the items inside elements that contain N items or less:
 
 	@include nope($count) { ... }
 
 
-### between
+### between()
 
-Target the items inside elements that contain between X and Y items:
+Target the items inside elements that contain a range between `$first` and `$last` items:
 
-	@include between($at-least, $at-most) { ... }
+	@include between($first, $last) { ... }
 
 ### Example
 
