@@ -77,11 +77,11 @@
     $selector-append: ':nth-last-child(n+#{$count})';
 
     @if type-of($count) != 'number' {
-        @error '`#{$count}` is not a valid number for at-least() mixin.';
+        @error '`#{$count}` is not a valid number for `at-leat`';
     }
 
     @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
-        @error '`#{$selector}` is not a valid selector for at-least($count, $selector)';
+        @error '`#{$selector}` is not a valid selector for `at-least`';
     }
 
     $at-least-selector: _build-quantity-selector($selector-append, $selector);
@@ -112,11 +112,11 @@
     $selector-append: ':nth-last-child(-n+#{$count}):first-child';
 
     @if type-of($count) != 'number' {
-        @error '`#{$count}` is not a valid number for at-least() mixin.';
+        @error '`#{$count}` is not a valid number for `at-most`.';
     }
 
     @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
-        @error '`#{$selector}` is not a valid selector for at-least($count, $selector)';
+        @error '`#{$selector}` is not a valid selector for `at-most`';
     }
 
     $at-least-selector: _build-quantity-selector($selector-append, $selector);
@@ -149,11 +149,11 @@
     $selector-append: ':nth-last-child(n+#{$first}):nth-last-child(-n+#{$last}):first-child';
 
     @if $first > $last {
-        @error '#{$first} canÂ´t be larger that #{$last} for in-between() mixin';
+        @error '#{$first} can´t be larger that #{$last} for `between`';
     }
 
     @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
-        @error '`#{$selector}` is not a valid selector for at-least($count, $selector)';
+        @error '`#{$selector}` is not a valid selector for `between`';
     }
 
     $at-least-selector: _build-quantity-selector($selector-append, $selector);
@@ -161,27 +161,5 @@
 
     @at-root #{$at-least-selector} {
         @content;
-    }
-}
-
-
-// -----------------------------------------------------------------------------
-// Test
-// -----------------------------------------------------------------------------
-
-.nav > li,
-.nav > div {
-
-    @include at-most(3) {
-        color: green;
-    }
-
-    @include at-least(6) {
-        color: red;
-    }
-
-
-    @include between(4, 6) {
-        background-color: rgba(blue, .1);
     }
 }

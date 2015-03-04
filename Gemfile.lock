@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    quantity-queries (0.1.0)
+    quantity-queries (0.2)
       compass (~> 1.0.0)
       sass (~> 3.4)
 

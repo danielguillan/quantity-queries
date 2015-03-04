@@ -1,6 +1,6 @@
 # Quantity Queries mixins
 
-Simple item quantity queries mixins for Sass.
+Simple quantity queries mixins for Sass. Use quantity as a condition. Learn more about quantity queries in this [http://alistapart.com/article/quantity-queries-for-css](A List Apart article).
 
 [![Build Status](https://travis-ci.org/danielguillan/quantity-queries.svg?branch=master)](https://travis-ci.org/danielguillan/quantity-queries)
 

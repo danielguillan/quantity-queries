@@ -1,13 +1,3 @@
-.nav > li:nth-last-child(-n+3):first-child, .nav > li:nth-last-child(-n+3):first-child ~ li, .nav > div:nth-last-child(-n+3):first-child, .nav > div:nth-last-child(-n+3):first-child ~ div {
-  color: green;
-}
-.nav > li:nth-last-child(n+6), .nav > li:nth-last-child(n+6) ~ li, .nav > div:nth-last-child(n+6), .nav > div:nth-last-child(n+6) ~ div {
-  color: red;
-}
-.nav > li:nth-last-child(n+4):nth-last-child(-n+6):first-child, .nav > li:nth-last-child(n+4):nth-last-child(-n+6):first-child ~ li, .nav > div:nth-last-child(n+4):nth-last-child(-n+6):first-child, .nav > div:nth-last-child(n+4):nth-last-child(-n+6):first-child ~ div {
-  background-color: rgba(0, 0, 255, 0.1);
-}
-
 ul > li:nth-last-child(n+4), ul > li:nth-last-child(n+4) ~ li {
   test: ok;
 }
