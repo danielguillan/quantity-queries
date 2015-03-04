@@ -1,0 +1,31 @@
+@import '../../stylesheets/_quantity-queries';
+
+// between
+ul > li {
+    @include between(4, 6) {
+        test: ok;
+    }
+}
+
+// between with custom item selector
+ul > li {
+    @include between(4, 6, '*') {
+        test: ok;
+    }
+}
+
+// between with multiple selectors
+ul > li,
+nav > div {
+    @include between(4, 6) {
+        test: ok;
+    }
+}
+
+// between with multiple selectors and custom item selector
+ul > li,
+nav > div {
+    @include between(4, 6, '*') {
+        test: ok;
+    }
+}

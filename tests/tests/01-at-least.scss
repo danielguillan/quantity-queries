@@ -1,0 +1,31 @@
+@import '../../stylesheets/_quantity-queries';
+
+// at-least
+ul > li {
+    @include at-least(4) {
+        test: ok;
+    }
+}
+
+// at-least with custom item selector
+ul > li {
+    @include at-least(4, '*') {
+        test: ok;
+    }
+}
+
+// at-least with multiple selectors
+ul > li,
+nav > div {
+    @include at-least(4) {
+        test: ok;
+    }
+}
+
+// at-least with multiple selectors and custom item selector
+ul > li,
+nav > div {
+    @include at-least(4, '*') {
+        test: ok;
+    }
+}
