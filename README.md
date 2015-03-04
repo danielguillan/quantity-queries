@@ -81,7 +81,7 @@ you just need to pass it in the mixin:
 ```scss
 
 	nav div {
-		@include at-leat(4, '*') { ... }; // selector agnostic
+		@include at-least(4, '*') { ... }; // selector agnostic
 		@include between(4, 8, 'span') { ... }; // use span instead of div
 	}
 ```
