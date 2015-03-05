@@ -36,7 +36,7 @@ Target the items inside elements that contain `$count` items or more:
 
 ### at-most()
 
-Target the items inside elements that contain N items or less:
+Target the items inside elements that contain `$count` items or less:
 
 	@include at-most($count) { ... }
 
@@ -73,15 +73,12 @@ ul > li {
 
 ### Custom selector
 
-The quantity query mixins assume you want to use the current simple selector for
-all your items by default. `li` in the previous example. If you need a diffrent
-selector or want it to be selector agnostic (a.k.a. the universal selector: `*`)
-you just need to pass it in the mixin:
+The quantity query mixins assume you want to use the current last simple selector for all the items by default (`li` in the above example). If you need a different selector or want the quantity query to be selector agnostic pass the desired selector to the mixin.
 
 ```scss
 
 	nav div {
-		@include at-least(4, '*') { ... }; // selector agnostic
+		@include at-least(4, '*') { ... }; // selector agnostic (universal selector)
 		@include between(4, 8, 'span') { ... }; // use span instead of div
 	}
 ```
