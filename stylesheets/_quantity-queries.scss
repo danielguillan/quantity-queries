@@ -148,11 +148,11 @@
     $selector-append: ':nth-last-child(n+#{$first}):nth-last-child(-n+#{$last}):first-child';
 
     @if type-of($first) != 'number' or not unitless($first) or $first < 1 {
-        @error '`#{$first}` is not a valid number for `at-least`';
+        @error '`#{$first}` is not a valid number for `between`';
     }
 
     @if type-of($last) != 'number' or not unitless($last) or $last < 1 {
-        @error '`#{$last}` is not a valid number for `at-least`';
+        @error '`#{$last}` is not a valid number for `between`';
     }
 
     @if $first > $last {
