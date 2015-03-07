@@ -13,5 +13,3 @@ ul > li:nth-last-child(-n+4):first-child, ul > li:nth-last-child(-n+4):first-chi
 ul > li:nth-last-child(-n+4):first-child, ul > li:nth-last-child(-n+4):first-child ~ *, nav > div:nth-last-child(-n+4):first-child, nav > div:nth-last-child(-n+4):first-child ~ * {
   test: ok;
 }
-
-/*# sourceMappingURL=02-at-most.css.map */
