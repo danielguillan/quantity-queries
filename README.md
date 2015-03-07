@@ -2,6 +2,8 @@
 
 Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css). See the mixins in action in this [CodePen Demo](http://codepen.io/danielguillan/pen/GgBOxm)
 
+[![Build Status](https://travis-ci.org/danielguillan/quantity-queries.svg?branch=master)](https://travis-ci.org/danielguillan/quantity-queries)
+
 ## Install
 
 There are 3 ways of installing the Quantity Queries mixins:
