@@ -76,7 +76,7 @@
     $selector-append: ':nth-last-child(n+#{$count})';
 
     @if type-of($count) != 'number' or not unitless($count) or $count < 1 {
-        @error '`#{$count}` is not a valid number for `at-leat`';
+        @error '`#{$count}` is not a valid number for `at-least`';
     }
 
     @if $selector != null and (type-of($selector) != 'string' or length($selector) > 1) {
@@ -148,11 +148,11 @@
     $selector-append: ':nth-last-child(n+#{$first}):nth-last-child(-n+#{$last}):first-child';
 
     @if type-of($first) != 'number' or not unitless($first) or $first < 1 {
-        @error '`#{$first}` is not a valid number for `at-leat`';
+        @error '`#{$first}` is not a valid number for `at-least`';
     }
 
     @if type-of($last) != 'number' or not unitless($last) or $last < 1 {
-        @error '`#{$last}` is not a valid number for `at-leat`';
+        @error '`#{$last}` is not a valid number for `at-least`';
     }
 
     @if $first > $last {
