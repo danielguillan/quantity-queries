@@ -199,10 +199,10 @@
         @error '`#{$selector}` is not a valid selector for `exactly`';
     }
 
-    $at-least-selector: _build-quantity-selector($selector-append, $selector);
+    $exactly-selector: _build-quantity-selector($selector-append, $selector);
 
 
-    @at-root #{$at-least-selector} {
+    @at-root #{$exactly-selector} {
         @content;
     }
 }
