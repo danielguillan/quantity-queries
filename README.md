@@ -85,4 +85,8 @@ The quantity query mixins assume you want to use the current last simple selecto
 	}
 ```
 
-### Demo on [CodePen](http://codepen.io/danielguillan/pen/GgBOxm)
+## Demo on [CodePen](http://codepen.io/danielguillan/pen/GgBOxm)
+
+## [LESS version](https://github.com/adjohnson916/quantity-queries.less)
+(by [@adjohnson916](https://github.com/adjohnson916))
+
