@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.2.0
+## 0.4.0
+
+* Added exactly() mixin
+
+## 0.3.0
 
 * Added more checks
 

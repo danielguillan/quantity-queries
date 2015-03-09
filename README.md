@@ -49,6 +49,13 @@ Target the items inside elements that contain a range between `$first` and `$las
 
 	@include between($first, $last) { ... }
 
+
+### exactly()
+
+Target the items inside elements that contain exactly `$count` items:
+
+	@include exactly($count) { ... }
+
 ### Example
 
 Sass input:
@@ -69,6 +76,11 @@ ul > li {
 	// Add a green background to `li` items when there are between 5 and 8 items
 	@include between(5, 8) {
 		background-color: green;
+	}
+
+	// Add a shadow to `li` items when there are exactly 8 items
+	@include exactly(8) {
+		box-shadow: 0 1px 3px #000;
 	}
 }
 ```
