@@ -99,6 +99,8 @@ The quantity query mixins assume you want to use the current last simple selecto
 
 ## Demo on [CodePen](http://codepen.io/danielguillan/pen/GgBOxm)
 
-## [LESS version](https://github.com/adjohnson916/quantity-queries.less)
-(by [@adjohnson916](https://github.com/adjohnson916))
+## Other implementations
 
+[LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
+
+[PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez
