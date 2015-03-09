@@ -1,0 +1,31 @@
+@import '../../stylesheets/_quantity-queries';
+
+// exactly
+ul > li {
+    @include exactly(4) {
+        test: ok;
+    }
+}
+
+// exactly with custom item selector
+ul > li {
+    @include exactly(4, '*') {
+        test: ok;
+    }
+}
+
+// exactly with multiple selectors
+ul > li,
+nav > div {
+    @include exactly(4) {
+        test: ok;
+    }
+}
+
+// exactly with multiple selectors and custom item selector
+ul > li,
+nav > div {
+    @include exactly(4, '*') {
+        test: ok;
+    }
+}
