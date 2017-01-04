@@ -1,0 +1,41 @@
+{
+  "name": "quantity-queries",
+  "version": "0.4.0",
+  "description": "Simple quantity queries mixins for Sass",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "rake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielguillan/quantity-queries.git"
+  },
+  "keywords": [
+    "sass",
+    "eyeglass-module",
+    "scss",
+    "css",
+    "quantity",
+    "query",
+    "at-least",
+    "at-most",
+    "between",
+    "exactly",
+    "count",
+    "elements"
+  ],
+  "eyeglass": {
+    "sassDir": "stylesheets",
+    "exports": false,
+    "name":    "quantity-queries",
+    "needs":   "*"
+  },
+  "author": "Daniel Guillan <daniel.guillan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielguillan/quantity-queries/issues"
+  },
+  "homepage": "https://github.com/danielguillan/quantity-queries#readme"
+}
