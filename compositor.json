@@ -1,0 +1,88 @@
+{
+  "name": "danielguillan/quantity-queries",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Quantity Queries",
+  "branch": "",
+  "style": {
+    "name": "Swiss",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "heading": {
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "layout": {
+      "fluid": true
+    },
+    "colors": {
+      "text": "#000",
+      "background": "#fff",
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/danielguillan/quantity-queries",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/quantity-queries",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "quantity-queries",
+      "subhead": "Simple quantity queries mixins for Sass",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "quantity-queries: Simple quantity queries mixins for Sass",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "danielguillan",
+          "repo": "quantity-queries"
+        }
+      ],
+      "text": "v0.4.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>Quantity Queries mixins <a href=\"https://travis-ci.org/danielguillan/quantity-queries\"><img src=\"https://travis-ci.org/danielguillan/quantity-queries.svg?branch=master\"></a></h1>\n<p>Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this <a href=\"http://alistapart.com/article/quantity-queries-for-css\">A List Apart article</a>. See the mixins in action in this <a href=\"http://codepen.io/danielguillan/pen/GgBOxm\">CodePen Demo</a></p>\n<h2>Install</h2>\n<p>There are 3 ways of installing the Quantity Queries mixins:</p>\n<h3>Download</h3>\n<p>Download <a href=\"/stylesheets/_quantity-queries.scss\">_quantity-queries.scss</a> and place it in your Sass directory.</p>\n<h3>Bower</h3>\n<p>Run the following command:</p>\n<pre><span class=\"hljs-keyword\">bower </span><span class=\"hljs-keyword\">install </span>--save-dev quantity-queries</pre><h3>Compass extension</h3>\n<ol>\n<li><code>gem install quantity-queries</code></li>\n<li>Add <code>require &apos;quantity-queries&apos;</code> to your <code>config.rb</code></li>\n</ol>\n<h2>Usage</h2>\n<p>Import it into your main stylesheet:</p>\n<pre>@<span class=\"hljs-keyword\">import</span> <span class=\"hljs-string\">&apos;quantity-queries&apos;</span>;</pre><h3>at-least()</h3>\n<p>Target the items inside elements that contain <code>$count</code> items or more:</p>\n<pre>@<span class=\"hljs-keyword\">include</span> at-least(<span class=\"hljs-variable\">$count</span>) { ... }</pre><h3>at-most()</h3>\n<p>Target the items inside elements that contain <code>$count</code> items or less:</p>\n<pre>@<span class=\"hljs-keyword\">include</span> at-most(<span class=\"hljs-variable\">$count</span>) { ... }</pre><h3>between()</h3>\n<p>Target the items inside elements that contain a range between <code>$first</code> and <code>$last</code> items:</p>\n<pre>@<span class=\"hljs-keyword\">include</span> between(<span class=\"hljs-variable\">$first</span>, <span class=\"hljs-variable\">$last</span>) { ... }</pre><h3>exactly()</h3>\n<p>Target the items inside elements that contain exactly <code>$count</code> items:</p>\n<pre>@<span class=\"hljs-keyword\">include</span> exactly(<span class=\"hljs-variable\">$count</span>) { ... }</pre><h3>Example</h3>\n<p>Sass input:</p>\n<pre><span class=\"hljs-selector-tag\">ul</span> &gt; <span class=\"hljs-selector-tag\">li</span> {\n\n    <span class=\"hljs-comment\">// Color the `li` items red when there are 6 items or more</span>\n    @<span class=\"hljs-keyword\">include</span> at-least(<span class=\"hljs-number\">6</span>) {\n        <span class=\"hljs-attribute\">color</span>: red;\n    }\n\n    <span class=\"hljs-comment\">// Color the `li` items blue when there are 4 items or less</span>\n    @<span class=\"hljs-keyword\">include</span> at-most(<span class=\"hljs-number\">4</span>) {\n        <span class=\"hljs-attribute\">color</span>: blue;\n    }\n\n    <span class=\"hljs-comment\">// Add a green background to `li` items when there are between 5 and 8 items</span>\n    @<span class=\"hljs-keyword\">include</span> between(<span class=\"hljs-number\">5</span>, 8) {\n        <span class=\"hljs-attribute\">background-color</span>: green;\n    }\n\n    <span class=\"hljs-comment\">// Add a shadow to `li` items when there are exactly 8 items</span>\n    @<span class=\"hljs-keyword\">include</span> exactly(<span class=\"hljs-number\">8</span>) {\n        <span class=\"hljs-attribute\">box-shadow</span>: <span class=\"hljs-number\">0</span> <span class=\"hljs-number\">1px</span> <span class=\"hljs-number\">3px</span> <span class=\"hljs-number\">#000</span>;\n    }\n}</pre><h3>Custom selector</h3>\n<p>The quantity query mixins assume you want to use the current last simple selector for all the items by default (<code>li</code> in the above example). If you need a different selector or want the quantity query to be selector agnostic pass the desired selector to the mixin.</p>\n<pre>\n    <span class=\"hljs-selector-tag\">nav</span> <span class=\"hljs-selector-tag\">div</span> {\n        @<span class=\"hljs-keyword\">include</span> at-least(<span class=\"hljs-number\">4</span>, <span class=\"hljs-string\">&apos;*&apos;</span>) { ... }; <span class=\"hljs-comment\">// selector agnostic (universal selector)</span>\n        @<span class=\"hljs-keyword\">include</span> between(<span class=\"hljs-number\">4</span>, 8, <span class=\"hljs-string\">&apos;span&apos;</span>) { ... }; <span class=\"hljs-comment\">// use span instead of div</span>\n    }</pre><h2>Demo on <a href=\"http://codepen.io/danielguillan/pen/GgBOxm\">CodePen</a></h2>\n<h2>Other implementations</h2>\n<p><a href=\"https://github.com/adjohnson916/quantity-queries.less\">LESS Quantity Queries</a> by Anders D. Johnson</p>\n<p><a href=\"https://github.com/pascalduez/postcss-quantity-queries\">PostCSS Quantity Queries</a> by Pascal Duez</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/danielguillan/quantity-queries",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/danielguillan",
+          "text": "danielguillan"
+        }
+      ]
+    }
+  ]
+}
