@@ -2,6 +2,7 @@
   "name": "quantity-queries",
   "version": "0.4.0",
   "description": "Simple quantity queries mixins for Sass",
+  "main": "stylesheets/_quantity-queries.scss",
   "directories": {
     "test": "tests"
   },
