@@ -4,55 +4,65 @@ Simple quantity queries mixins for Sass. Use quantity as a condition to style yo
 
 ## Install
 
-There are 3 ways of installing the Quantity Queries mixins:
-
-### Download
-
-Download [_quantity-queries.scss](/stylesheets/_quantity-queries.scss) and place it in your Sass directory.
-
-### Bower
-
-Run the following command:
-
-	bower install --save-dev quantity-queries
-
-### Compass extension
-
-1. `gem install quantity-queries`
-2. Add `require 'quantity-queries'` to your `config.rb`
+```sh
+npm install --save-dev quantity-queries
+```
 
 ## Usage
 
 Import it into your main stylesheet:
 
+```scss
 	@import 'quantity-queries';
+```
 
 ### at-least()
 
 Target the items inside elements that contain `$count` items or more:
 
-	@include at-least($count) { ... }
-
+```scss
+@include at-least($count) { ... }
+```
 
 ### at-most()
 
 Target the items inside elements that contain `$count` items or less:
 
-	@include at-most($count) { ... }
-
+```scss
+@include at-most($count) { ... }
+```
 
 ### between()
 
 Target the items inside elements that contain a range between `$first` and `$last` items:
 
-	@include between($first, $last) { ... }
-
+```scss
+@include between($first, $last) { ... }
+```
 
 ### exactly()
 
 Target the items inside elements that contain exactly `$count` items:
 
-	@include exactly($count) { ... }
+```scss
+@include exactly($count) { ... }
+```
+
+### even()
+
+Target the items inside elements that contain an even number of items:
+
+```scss
+@include even() { ... }
+```
+
+### odd()
+
+Target the items inside elements that contain an odd number of items:
+
+```scss
+@include odd() { ... }
+```
 
 ### Example
 
@@ -80,6 +90,16 @@ ul > li {
 	@include exactly(8) {
 		box-shadow: 0 1px 3px #000;
 	}
+
+// Add a red outline to `li` items when there are is an even number of them
+	@include even() {
+		outline: solid 2px red;
+	}
+
+// Add a blue outline to `li` items when there is an odd number of number
+	@include even() {
+		outline: solid 2px blue;
+	}
 }
 ```
 
@@ -99,6 +119,5 @@ The quantity query mixins assume you want to use the current last simple selecto
 
 ## Other implementations
 
-[LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
-
-[PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez
+- [LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
+- [PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez
