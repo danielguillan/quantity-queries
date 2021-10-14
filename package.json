@@ -2,7 +2,7 @@
   "name": "quantity-queries",
   "version": "0.5.0",
   "description": "Simple quantity queries mixins for Sass",
-  "main": "src/_quantity-queries.scss",
+  "main": "src/index.scss",
   "scripts": {
     "test": "jest"
   },
