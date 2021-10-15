@@ -1,19 +1,43 @@
-# Quantity Queries mixins [![Build Status](https://travis-ci.org/danielguillan/quantity-queries.svg?branch=master)](https://travis-ci.org/danielguillan/quantity-queries)
+# Quantity Queries mixins
 
 Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css). See the mixins in action in this [CodePen Demo](http://codepen.io/danielguillan/pen/GgBOxm)
 
 ## Install
 
+Using npm:
+
 ```sh
 npm install --save-dev quantity-queries
 ```
 
+Using Yarn:
+
+```sh
+yarn add --dev quantity-queries
+```
+
 ## Usage
 
-Import it into your main stylesheet:
+Import the library:
 
 ```scss
-	@import 'quantity-queries';
+// Dart Sass
+@use 'quantity-queries';
+```
+
+```scss
+// LibSass
+@import 'quantity-queries/legacy';
+```
+
+Note: depending on your setup you might need to use the node_modules path for the import. 
+
+```scss
+// Dart Sass
+@use '{node_modules_path}/quantity-queries/src/';
+
+// Legacy implementations (e.g., node-sass)
+@import '{node_modules_path}/quantity-queries/src/legacy';
 ```
 
 ### at-least()
@@ -21,7 +45,7 @@ Import it into your main stylesheet:
 Target the items inside elements that contain `$count` items or more:
 
 ```scss
-@include at-least($count) { ... }
+@include at-least($count, $selector) { ... }
 ```
 
 ### at-most()
@@ -29,7 +53,7 @@ Target the items inside elements that contain `$count` items or more:
 Target the items inside elements that contain `$count` items or less:
 
 ```scss
-@include at-most($count) { ... }
+@include at-most($count, $selector) { ... }
 ```
 
 ### between()
@@ -37,7 +61,7 @@ Target the items inside elements that contain `$count` items or less:
 Target the items inside elements that contain a range between `$first` and `$last` items:
 
 ```scss
-@include between($first, $last) { ... }
+@include between($first, $last, $selector) { ... }
 ```
 
 ### exactly()
@@ -45,7 +69,7 @@ Target the items inside elements that contain a range between `$first` and `$las
 Target the items inside elements that contain exactly `$count` items:
 
 ```scss
-@include exactly($count) { ... }
+@include exactly($count, $selector) { ... }
 ```
 
 ### even()
@@ -53,7 +77,7 @@ Target the items inside elements that contain exactly `$count` items:
 Target the items inside elements that contain an even number of items:
 
 ```scss
-@include even() { ... }
+@include even($selector) { ... }
 ```
 
 ### odd()
@@ -61,7 +85,7 @@ Target the items inside elements that contain an even number of items:
 Target the items inside elements that contain an odd number of items:
 
 ```scss
-@include odd() { ... }
+@include odd($selector) { ... }
 ```
 
 ### Example
@@ -105,7 +129,7 @@ ul > li {
 
 ### Custom selector
 
-The quantity query mixins assume you want to use the current last simple selector for all the items by default (`li` in the above example). If you need a different selector or want the quantity query to be selector agnostic pass the desired selector to the mixin.
+The quantity query mixins default to use the current last simple selector for all the items (`li` in the above example). If you need a different selector or want the quantity query to be selector agnostic, pass the desired selector to the mixin.
 
 ```scss
 
@@ -121,3 +145,4 @@ The quantity query mixins assume you want to use the current last simple selecto
 
 - [LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
 - [PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez
+
