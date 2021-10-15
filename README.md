@@ -117,7 +117,7 @@ ul > li {
 		box-shadow: 0 1px 3px #000;
 	}
 
-// Add a red outline to `li` items when there are is an even number of them
+// Add a red outline to `li` items when there is an even number of them
 	@include even() {
 		outline: solid 2px red;
 	}
@@ -131,7 +131,7 @@ ul > li {
 
 ### Custom selector
 
-The quantity query mixins default to use the current last simple selector for all the items (`li` in the above example). If you need a different selector or want the quantity query to be selector agnostic, pass the desired selector to the mixin.
+The quantity queries mixins default to the current last simple selector for all the items (`li` in the above example). If you need a different selector or want the quantity query to be selector-agnostic, pass the desired selector to the mixin.
 
 ```scss
 
