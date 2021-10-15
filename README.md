@@ -1,5 +1,7 @@
 # Quantity Queries mixins
 
+[![npm version](https://badge.fury.io/js/quantity-queries.svg)](https://badge.fury.io/js/quantity-queries) [![Test](https://github.com/danielguillan/quantity-queries/actions/workflows/test.yml/badge.svg)](https://github.com/danielguillan/quantity-queries/actions/workflows/test.yml)
+
 Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css). See the mixins in action in this [CodePen Demo](http://codepen.io/danielguillan/pen/GgBOxm)
 
 ## Install
