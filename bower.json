@@ -1,7 +1,0 @@
-{
-    "name": "quantity-queries",
-    "version": "0.4.0",
-    "main": "_quantity-queries.scss",
-    "author": "Daniel Guillan",
-    "ignore": ["*","!stylesheets/_quantity-queries.scss"]
-}

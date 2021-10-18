@@ -1,5 +1,14 @@
 {
   "name": "Quantity Queries",
   "description": "Simple item quantity queries mixins for Sass",
-  "tags": ["quantity", "queries", "helper", "count", "css", "compass"]
+  "tags": [
+    "quantity",
+    "queries",
+    "helper",
+    "count",
+    "css",
+    "mixins",
+    "nth-child",
+    "pseudo-classes"
+  ]
 }

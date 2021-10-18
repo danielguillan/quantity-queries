@@ -1,58 +1,96 @@
-# Quantity Queries mixins [![Build Status](https://travis-ci.org/danielguillan/quantity-queries.svg?branch=master)](https://travis-ci.org/danielguillan/quantity-queries)
+# Quantity Queries mixins
+
+[![npm version](https://badge.fury.io/js/quantity-queries.svg)](https://badge.fury.io/js/quantity-queries) [![Test](https://github.com/danielguillan/quantity-queries/actions/workflows/test.yml/badge.svg)](https://github.com/danielguillan/quantity-queries/actions/workflows/test.yml)
 
 Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css). See the mixins in action in this [CodePen Demo](http://codepen.io/danielguillan/pen/GgBOxm)
 
+![quantity-queries](https://user-images.githubusercontent.com/175638/137526927-3b871e2e-2dea-46d0-9d42-784a9621af36.png)
+
 ## Install
 
-There are 3 ways of installing the Quantity Queries mixins:
+Using npm:
 
-### Download
+```sh
+npm install --save-dev quantity-queries
+```
 
-Download [_quantity-queries.scss](/stylesheets/_quantity-queries.scss) and place it in your Sass directory.
+Using Yarn:
 
-### Bower
-
-Run the following command:
-
-	bower install --save-dev quantity-queries
-
-### Compass extension
-
-1. `gem install quantity-queries`
-2. Add `require 'quantity-queries'` to your `config.rb`
+```sh
+yarn add --dev quantity-queries
+```
 
 ## Usage
 
-Import it into your main stylesheet:
+Import the library:
 
-	@import 'quantity-queries';
+```scss
+// Dart Sass
+@use 'quantity-queries';
+```
+
+```scss
+// LibSass
+@import 'quantity-queries/legacy';
+```
+
+Note: depending on your setup you might need to use the node_modules path for the import. 
+
+```scss
+// Dart Sass
+@use '{node_modules_path}/quantity-queries/src/';
+
+// Legacy implementations (e.g., node-sass)
+@import '{node_modules_path}/quantity-queries/src/legacy';
+```
 
 ### at-least()
 
 Target the items inside elements that contain `$count` items or more:
 
-	@include at-least($count) { ... }
-
+```scss
+@include at-least($count, $selector) { ... }
+```
 
 ### at-most()
 
 Target the items inside elements that contain `$count` items or less:
 
-	@include at-most($count) { ... }
-
+```scss
+@include at-most($count, $selector) { ... }
+```
 
 ### between()
 
 Target the items inside elements that contain a range between `$first` and `$last` items:
 
-	@include between($first, $last) { ... }
-
+```scss
+@include between($first, $last, $selector) { ... }
+```
 
 ### exactly()
 
 Target the items inside elements that contain exactly `$count` items:
 
-	@include exactly($count) { ... }
+```scss
+@include exactly($count, $selector) { ... }
+```
+
+### even()
+
+Target the items inside elements that contain an even number of items:
+
+```scss
+@include even($selector) { ... }
+```
+
+### odd()
+
+Target the items inside elements that contain an odd number of items:
+
+```scss
+@include odd($selector) { ... }
+```
 
 ### Example
 
@@ -80,12 +118,22 @@ ul > li {
 	@include exactly(8) {
 		box-shadow: 0 1px 3px #000;
 	}
+
+// Add a red outline to `li` items when there is an even number of them
+	@include even() {
+		outline: solid 2px red;
+	}
+
+// Add a blue outline to `li` items when there is an odd number of number
+	@include even() {
+		outline: solid 2px blue;
+	}
 }
 ```
 
 ### Custom selector
 
-The quantity query mixins assume you want to use the current last simple selector for all the items by default (`li` in the above example). If you need a different selector or want the quantity query to be selector agnostic pass the desired selector to the mixin.
+The quantity queries mixins default to the current last simple selector for all the items (`li` in the above example). If you need a different selector or want the quantity query to be selector-agnostic, pass the desired selector to the mixin.
 
 ```scss
 
@@ -99,6 +147,6 @@ The quantity query mixins assume you want to use the current last simple selecto
 
 ## Other implementations
 
-[LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
+- [LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
+- [PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez
 
-[PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez

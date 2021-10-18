@@ -1,0 +1,556 @@
+@use '../src' as *;
+@use 'true' as *;
+
+@include describe('exactly()') {
+  @include it(
+    'should return content in a selector matching an exact number of elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include exactly(3) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(3):first-child,
+        ul > li:nth-last-child(3):first-child ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an exact number of elements using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include exactly(3, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(3):first-child,
+        ul > li:nth-last-child(3):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an exact number of elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include exactly(3) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(3):first-child,
+        ul > li:nth-last-child(3):first-child ~ li,
+        nav > div:nth-last-child(3):first-child,
+        nav > div:nth-last-child(3):first-child ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an exact number of elements for multiple selectors and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include exactly(3, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(3):first-child,
+        ul > li:nth-last-child(3):first-child ~ *,
+        nav > div:nth-last-child(3):first-child,
+        nav > div:nth-last-child(3):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}
+
+@include describe('between()') {
+  @include it(
+    'should return content in a selector matching a range of elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include between(4, 6) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child,
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a range of elements using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include between(4, 6, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child,
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a range of elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include between(4, 6) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child,
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child ~ li,
+        nav > div:nth-last-child(n + 4):nth-last-child(-n + 6):first-child,
+        nav
+          > div:nth-last-child(n + 4):nth-last-child(-n + 6):first-child
+          ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a range of elements and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include between(4, 6, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child,
+        ul > li:nth-last-child(n + 4):nth-last-child(-n + 6):first-child ~ *,
+        nav > div:nth-last-child(n + 4):nth-last-child(-n + 6):first-child,
+        nav > div:nth-last-child(n + 4):nth-last-child(-n + 6):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}
+
+@include describe('at-least()') {
+  @include it(
+    'should return content in a selector matching a minimum number of elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include at-least(4) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4),
+        ul > li:nth-last-child(n + 4) ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a minimum number of elements using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include at-least(4, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4),
+        ul > li:nth-last-child(n + 4) ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a minimum number of elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include at-least(4) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4),
+        ul > li:nth-last-child(n + 4) ~ li,
+        nav > div:nth-last-child(n + 4),
+        nav > div:nth-last-child(n + 4) ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a minimum number of elements for multiple selectors and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include at-least(4, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(n + 4),
+        ul > li:nth-last-child(n + 4) ~ *,
+        nav > div:nth-last-child(n + 4),
+        nav > div:nth-last-child(n + 4) ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}
+
+@include describe('at-most()') {
+  @include it(
+    'should return content in a selector matching a maximum number of elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include at-most(4) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(-n + 4):first-child,
+        ul > li:nth-last-child(-n + 4):first-child ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a maximum number of elements using a custom selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include at-most(4, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(-n + 4):first-child,
+        ul > li:nth-last-child(-n + 4):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a maximum number of elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include at-most(4) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(-n + 4):first-child,
+        ul > li:nth-last-child(-n + 4):first-child ~ li,
+        nav > div:nth-last-child(-n + 4):first-child,
+        nav > div:nth-last-child(-n + 4):first-child ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a maximum number of elements and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include at-most(4, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(-n + 4):first-child,
+        ul > li:nth-last-child(-n + 4):first-child ~ *,
+        nav > div:nth-last-child(-n + 4):first-child,
+        nav > div:nth-last-child(-n + 4):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}
+
+@include describe('even()') {
+  @include it(
+    'should return content in a selector matching an even number of elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include even() {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(even):first-child,
+        ul > li:nth-last-child(even):first-child ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an even number of elements using a custom selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include even('*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(even):first-child,
+        ul > li:nth-last-child(even):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an even number of elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include even() {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(even):first-child,
+        ul > li:nth-last-child(even):first-child ~ li,
+        nav > div:nth-last-child(even):first-child,
+        nav > div:nth-last-child(even):first-child ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an even number of elements for multiple selectors and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include even('*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(even):first-child,
+        ul > li:nth-last-child(even):first-child ~ *,
+        nav > div:nth-last-child(even):first-child,
+        nav > div:nth-last-child(even):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}
+
+@include describe('odd()') {
+  @include it(
+    'should return content in a selector matching an odd number of elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include odd() {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(odd):first-child,
+        ul > li:nth-last-child(odd):first-child ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an odd number of elements using a custom selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include odd('*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(odd):first-child,
+        ul > li:nth-last-child(odd):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an odd number of elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include odd() {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(odd):first-child,
+        ul > li:nth-last-child(odd):first-child ~ li,
+        nav > div:nth-last-child(odd):first-child,
+        nav > div:nth-last-child(odd):first-child ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching an odd number of elements for multiple selectors and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include odd('*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(odd):first-child,
+        ul > li:nth-last-child(odd):first-child ~ *,
+        nav > div:nth-last-child(odd):first-child,
+        nav > div:nth-last-child(odd):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}
