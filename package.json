@@ -1,6 +1,6 @@
 {
   "name": "quantity-queries",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0",
   "description": "Simple quantity queries mixins for Sass",
   "main": "src/index.scss",
   "author": "Daniel Guillan <hi@danielguillan.com>",
