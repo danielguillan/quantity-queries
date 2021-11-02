@@ -119,12 +119,12 @@ ul > li {
 		box-shadow: 0 1px 3px #000;
 	}
 
-// Add a red outline to `li` items when there is an even number of them
+	// Add a red outline to `li` items when there is an even number of them
 	@include even() {
 		outline: solid 2px red;
 	}
 
-// Add a blue outline to `li` items when there is an odd number of number
+	// Add a blue outline to `li` items when there is an odd number of them
 	@include even() {
 		outline: solid 2px blue;
 	}
