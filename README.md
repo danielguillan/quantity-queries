@@ -4,7 +4,17 @@
 
 Simple quantity queries mixins for Sass. Use quantity as a condition to style your items. Learn more about quantity queries in this [A List Apart article](http://alistapart.com/article/quantity-queries-for-css). See the mixins in action in this [CodePen Demo](http://codepen.io/danielguillan/pen/GgBOxm)
 
-![quantity-queries](https://user-images.githubusercontent.com/175638/137526927-3b871e2e-2dea-46d0-9d42-784a9621af36.png)
+Mixin item quantity matching examples:
+
+|                 | 1 item | 2 items | 3 items | 4 items | 5 items | 6 items |
+| --------------- | :----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| `at-least(4)`   |        |         |         |    ✓    |    ✓    |    ✓    |
+| `at-most(4)`    |   ✓    |    ✓    |    ✓    |    ✓    |         |         |
+| `between(3, 6)` |        |         |    ✓    |    ✓    |    ✓    |    ✓    |
+| `exactly(5)`    |        |         |         |         |    ✓    |         |
+| `even()`        |        |    ✓    |         |    ✓    |         |    ✓    |
+| `odd()`         |   ✓    |         |    ✓    |         |    ✓    |         |
+
 
 ## Install
 
