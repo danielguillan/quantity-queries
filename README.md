@@ -14,6 +14,7 @@ Mixin item quantity matching examples:
 | `exactly(5)`    |        |         |         |         |    ✓    |         |
 | `even()`        |        |    ✓    |         |    ✓    |         |    ✓    |
 | `odd()`         |   ✓    |         |    ✓    |         |    ✓    |         |
+| `multiple-of(3)`|        |         |    ✓    |         |         |    ✓    |
 
 
 ## Install
@@ -102,6 +103,14 @@ Target the items inside elements that contain an odd number of items:
 @include odd($selector) { ... }
 ```
 
+### multiple-of()
+
+Target the items inside elements that contain a multiple of `$count` number of items:
+
+```scss
+@include multiple-of($selector) { ... }
+```
+
 ### Example
 
 Sass input:
@@ -137,6 +146,14 @@ ul > li {
 	// Add a blue outline to `li` items when there is an odd number of them
 	@include odd() {
 		outline: solid 2px blue;
+	}
+
+	// Span every sixth element of a grid when it and its siblings are a multiple of 6
+	@include multiple-of(6, '*') {
+		&:nth-child(6n + 1) {
+			grid-row: span 2;
+			grid-column: span 2;
+		}
 	}
 }
 ```

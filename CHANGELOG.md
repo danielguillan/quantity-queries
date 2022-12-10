@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+- Add `multiple-of()` mixin
+
 ## 1.0.0
 
 - New Dart Sass implementation
