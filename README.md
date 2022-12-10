@@ -44,7 +44,7 @@ Import the library:
 @import 'quantity-queries/legacy';
 ```
 
-Note: depending on your setup you might need to use the node_modules path for the import. 
+Note: depending on your setup you might need to use the node_modules path for the import.
 
 ```scss
 // Dart Sass
@@ -135,7 +135,7 @@ ul > li {
 	}
 
 	// Add a blue outline to `li` items when there is an odd number of them
-	@include even() {
+	@include odd() {
 		outline: solid 2px blue;
 	}
 }
@@ -159,4 +159,3 @@ The quantity queries mixins default to the current last simple selector for all 
 
 - [LESS Quantity Queries](https://github.com/adjohnson916/quantity-queries.less) by Anders D. Johnson
 - [PostCSS Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) by Pascal Duez
-
