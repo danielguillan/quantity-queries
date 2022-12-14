@@ -554,3 +554,95 @@
     }
   }
 }
+
+@include describe('multiple-of()') {
+  @include it(
+    'should return content in a selector matching a multiple of 4 elements'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include multiple-of(4) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(4n):first-child,
+        ul > li:nth-last-child(4n):first-child ~ li {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a multiple of 4 elements using a custom selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li {
+          @include multiple-of(4, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(4n):first-child,
+        ul > li:nth-last-child(4n):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a multiple of 4 elements for multiple selectors'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include multiple-of(4) {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(4n):first-child,
+        ul > li:nth-last-child(4n):first-child ~ li,
+        nav > div:nth-last-child(4n):first-child,
+        nav > div:nth-last-child(4n):first-child ~ div {
+          color: green;
+        }
+      }
+    }
+  }
+
+  @include it(
+    'should return content in a selector matching a multiple of 4 elements and using a custom child selector'
+  ) {
+    @include assert {
+      @include output {
+        ul > li,
+        nav > div {
+          @include multiple-of(4, '*') {
+            color: green;
+          }
+        }
+      }
+
+      @include expect {
+        ul > li:nth-last-child(4n):first-child,
+        ul > li:nth-last-child(4n):first-child ~ *,
+        nav > div:nth-last-child(4n):first-child,
+        nav > div:nth-last-child(4n):first-child ~ * {
+          color: green;
+        }
+      }
+    }
+  }
+}

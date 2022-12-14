@@ -269,3 +269,40 @@
     @content;
   }
 }
+
+// -----------------------------------------------------------------------------
+// 9. Multiple of
+// -----------------------------------------------------------------------------
+
+/// Query when total items is multiple of N
+/// @param  {number} $count - Quantity to match (equal)
+/// @example scss - Make the items color red when the total of siblings is multiple of 3 items
+///   ul > li {
+///     @include multiple-of(3) { color: red; }
+///   }
+/// @example scss - Make the items color blue when the total of siblings is multiple of 5 items and use '*' (element agnostic) as the item selector
+///   ul > li {
+///     @include multiple-of(5, '*') { color: blue; }
+///   }
+
+@mixin multiple-of($count, $selector: null) {
+  $selector-append: ':nth-last-child(#{$count}n):first-child';
+
+  @if type-of($count) != 'number' or not unitless($count) or $count < 1
+  {
+    @error '`#{$count}` is not a valid number for `multiple-of`';
+  }
+
+  @if $selector !=
+    null and
+    (type-of($selector) != 'string' or length($selector) > 1)
+  {
+    @error '`#{$selector}` is not a valid selector for `multiple-of`';
+  }
+
+  $multiple-of-selector: _build-quantity-selector($selector-append, $selector);
+
+  @at-root #{$multiple-of-selector} {
+    @content;
+  }
+}

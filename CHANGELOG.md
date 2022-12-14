@@ -1,9 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+- Add `multiple-of()` mixin
+
 ## 1.0.0
 
 - New Dart Sass implementation
-- Support for deprecated LibSass (node-sass) implementation 
+- Support for deprecated LibSass (node-sass) implementation
 - New `even()` and `odd()`  mixins
 - Removed support for Bower
 - Removed support for RubyGems
